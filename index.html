@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An nou fericit!</title>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .scrisoare {
+      text-align: center;
+      z-index: 10;
+      position: absolute;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+    p {
+        padding: 0 30px;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="scrisoare">
+    <h1>La Mulți Ani!</h1>
+    <p>Fie ca Noul An să-ți aducă sănătate, bucurii și împliniri alături de cei dragi, iar toate visele tale să devină realitate.</p>
+  </div>
+  <script>
+    // Configurare Fireworks.js
+    const container = document.body;
+
+    const fireworks = new Fireworks(container, {
+  autoresize: true,
+  opacity: 0.6, // Slightly more visible
+  acceleration: 1.05,
+  friction: 0.97,
+  gravity: 2.5, // Less gravity for slower descent
+  particles: 120, // More particles for a larger explosion
+  traceLength: 4, // Longer traces for more dramatic visuals
+  traceSpeed: 15, // Faster traces for more energy
+  explosion: 7, // Bigger explosion radius
+  intensity: 50, // Increased intensity for more bursts
+  flickering: 70, // More flickering for dynamic effects
+  lineStyle: 'round',
+  hue: {
+    min: 0,
+    max: 360
+  },
+  delay: {
+    min: 60,
+    max: 60 // Faster cadence for larger impact
+  },
+  rocketsPoint: {
+    min: 50,
+    max: 50
+  },
+  lineWidth: {
+    explosion: {
+      min: 2,
+      max: 4 // Thicker explosion lines
+    },
+    trace: {
+      min: 1,
+      max: 3 // Thicker trace lines
+    }
+  },
+  brightness: {
+    min: 60,
+    max: 90 // Brighter colors
+  },
+  decay: {
+    min: 0.005, // Slower decay for longer-lasting fireworks
+    max: 0.01
+  },
+  mouse: {
+    click: false,
+    move: false,
+    max: 1
+  }
+});
+
+
+    fireworks.start();
+
+    // Lansează un artificiu în fiecare secundă
+    setInterval(() => {
+      fireworks.explode();
+      if ('vibrate' in navigator) {
+        navigator.vibrate(200); // Vibrație pentru 200ms
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
